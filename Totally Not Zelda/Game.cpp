@@ -41,6 +41,8 @@ void Game::update()
 			m_running = false;
 		}
 	}
+
+	std::cout << m_fpsCounter.getRoundedFps() << std::endl;
 }
 void Game::draw()
 {
@@ -48,6 +50,7 @@ void Game::draw()
 	m_window.clear(sf::Color::Magenta);
 	//DRAW STUFF HERE
 	m_window.display();
+	m_fpsCounter.countFrame();
 }
 void Game::cleanup()
 {
