@@ -24,6 +24,7 @@ void Game::start()
 void Game::init()
 {
 	//Load shit
+	m_map.loadFromFile("mapUncompressed.tmx");
 	//setup the main window
 	m_window.create(sf::VideoMode(800, 600), "Totally Not Zelda");
 	m_window.setFramerateLimit(60);
@@ -42,7 +43,7 @@ void Game::update()
 		}
 	}
 
-	std::cout << m_fpsCounter.getRoundedFps() << std::endl;
+	//std::cout << m_fpsCounter.getRoundedFps() << std::endl;
 }
 void Game::draw()
 {

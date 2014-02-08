@@ -2,6 +2,7 @@
 #include <iostream>
 #include "SFML\Graphics.hpp"
 #include "FpsCounter.h"
+#include "Map.h"
 class Game
 {
 public:
@@ -15,7 +16,7 @@ private:
 	void draw();
 	void cleanup();
 
-	
+	Map m_map;
 	FpsCounter m_fpsCounter;
 
 	bool m_running;
