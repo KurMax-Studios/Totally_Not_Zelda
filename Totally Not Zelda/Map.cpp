@@ -21,7 +21,6 @@ void Map::loadFromFile(std::string filename)
 	}
 	std::string rawMapDataString((std::istreambuf_iterator<char>(file)), std::istreambuf_iterator<char>());
 
-	std::cout << rawMapDataString << std::endl;
 	//Convert to char array since rapidxml wont accept const char*
 	char* rawMapData = new char[rawMapDataString.size()+1]; // +1 since we need space for the null terminator
 	strcpy_s(rawMapData, sizeof(char)*rawMapDataString.size()+1 ,rawMapDataString.c_str());
@@ -36,6 +35,13 @@ void Map::loadFromFile(std::string filename)
 	//Convert the resulting strings to ints and store them
 	m_mapSize.x = std::stoi(mapWidth);
 	m_mapSize.y = std::stoi(mapHeight);
+
+	//Resize the m_tiles vectors to fit the map
+	m_tiles.resize(m_mapSize.y);
+	for(size_t i=0; i < m_tiles.size(); i++)
+	{
+		m_tiles[i].resize(m_mapSize.x);
+	}
 
 
 	//Check if the first layer has any data encoding
@@ -52,7 +58,24 @@ void Map::loadFromFile(std::string filename)
 		}
 
 	}
-	
+	rapidxml::xml_node<> *tile = layer->first_node("tile");
+	for(int y=0; y < m_mapSize.y; y++)
+	{
+		for(int x=0; x < m_mapSize.x; x++)
+		{
+			m_tiles[y][x].id = std::stoi(tile->first_attribute("gid")->value());
+			tile = tile->next_sibling();
+		}
+	}
+
+	for(size_t y=0; y < m_tiles.size(); y++)
+	{
+		for(size_t x=0; x < m_tiles[y].size(); x++)
+		{
+			std::cout << m_tiles[y][x].id << " ";
+		}
+		std::cout << std::endl;
+	}
 	
 
 	delete[] rawMapData;

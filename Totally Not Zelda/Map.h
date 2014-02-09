@@ -1,5 +1,5 @@
 #pragma once
-#include <map>
+#include <vector>
 #include <string>
 #include <fstream>
 #include <iostream>
@@ -17,6 +17,6 @@ private:
 	sf::Vector2i m_mapSize;
 	sf::Vector2i m_tileSize;
 
-	std::map<sf::Vector2i, Tile> m_tiles;
+	std::vector<std::vector<Tile>> m_tiles;
 };
 
