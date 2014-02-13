@@ -24,7 +24,7 @@ void Game::start()
 void Game::init()
 {
 	//Load shit
-	m_map.loadFromFile("mapUncompressed.tmx");
+	m_map.loadFromFile("mapBase64.tmx");
 	//setup the main window
 	m_window.create(sf::VideoMode(800, 600), "Totally Not Zelda");
 	m_window.setFramerateLimit(60);
