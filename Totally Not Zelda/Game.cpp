@@ -23,7 +23,6 @@ void Game::start()
 
 void Game::init()
 {
-	//Load shit
 	m_map.loadFromFile("mapBase64.tmx");
 	//setup the main window
 	m_window.create(sf::VideoMode(800, 600), "Totally Not Zelda");
@@ -33,7 +32,6 @@ void Game::init()
 }
 void Game::update()
 {
-	//Do shit
 	sf::Event event;
     while (m_window.pollEvent(event))
     {
@@ -47,7 +45,6 @@ void Game::update()
 }
 void Game::draw()
 {
-	//Draw shit
 	m_window.clear(sf::Color::Magenta);
 	//DRAW STUFF HERE
 	m_window.display();
@@ -55,7 +52,6 @@ void Game::draw()
 }
 void Game::cleanup()
 {
-	//unload shit
 }
 
 

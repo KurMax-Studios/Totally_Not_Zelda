@@ -3,7 +3,7 @@ class Tile
 {
 public:
 	Tile();
-	explicit Tile(int); // explecit so that we get no eccidental conversions
+	explicit Tile(int); // explicit so that we get no accidental conversions
 	~Tile(void);
 
 	int id;

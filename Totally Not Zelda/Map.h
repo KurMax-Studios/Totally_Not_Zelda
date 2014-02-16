@@ -15,10 +15,11 @@ public:
 	~Map(void);
 
 	void loadFromFile(std::string filename);
+
 private:
 	sf::Vector2i m_mapSize;
 	sf::Vector2i m_tileSize;
 
-	std::vector<std::vector<Tile>> m_tiles; //Acsessed [y][x] becuse of how tiled sorts maps
+	std::vector<std::vector<Tile>> m_tiles; //Acsessed [y][x] becuse of how .tmx maps sort tiles
 };
 

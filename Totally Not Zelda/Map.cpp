@@ -48,11 +48,11 @@ void Map::loadFromFile(std::string filename)
 	rapidxml::xml_node<> *layerData = mapData.first_node("map")->first_node("layer")->first_node("data");
 	if(layerData->first_attribute("encoding") != NULL)
 	{
-		//Take steps to decode it
+		//Print out encoding info, for debugging
 		std::cout << "Encoding: " << layerData->first_attribute("encoding")->value() << std::endl;
 		std::cout << "Raw data: " << layerData->value() << std::endl;
 
-		//Since our base64 decoder does not like whitespace, we remove it from the encoded string
+		//Since valid base64 should not have whitespace, we remove it from the encoded string incase there are any in the source file
 		std::string encodedData = layerData->value();
 		encodedData.erase(std::remove_if(encodedData.begin(), encodedData.end(), isspace), encodedData.end());
 		std::string decodedData = base64_decode(encodedData);
@@ -61,19 +61,19 @@ void Map::loadFromFile(std::string filename)
 		{
 			//If the layer has further compression, uncompress the string
 
-			//Fuck this for now
+			//Compression support will be added at a later time
 
 			std::cout << "Compression: " << layerData->first_attribute("compression")->value() << std::endl;
 			
 		}
 
 		//Our return string is to be interpreted as an array of unsinged 32 bit integers, NOT as chars
-		//Mening that we parse the decoded data 4 bytes at a time, or 4 chars of data per loop
+		//Mening that we parse the decoded data 4 bytes at a time
 		
 		for(size_t i=0; i < decodedData.size(); i+=4)
 		{
 			unsigned int id = 0;
-			//We itterate backwards since the data is stored in a Lowest significant bit first order
+			//We iterate backwards since the data is stored in a Lowest significant bit first order
 			for(int j=3; j >= 0; j--)
 			{
 				//XOR the bits into the id variable
@@ -85,7 +85,7 @@ void Map::loadFromFile(std::string filename)
 					id = id << 8;
 				}
 			}
-			//i/4 to get the number of tiles
+			//i/4 to get the number of tiles since 4 chars makes up 1 id
 			int yPos = (i/4) / m_mapSize.y;
 			int xPos = (i/4) % m_mapSize.x;
 			
@@ -95,7 +95,7 @@ void Map::loadFromFile(std::string filename)
 	}
 	else
 	{
-		//If there is no encoding we just itterate over the xml nodes
+		//If there is no encoding we just iterate over the xml nodes
 		rapidxml::xml_node<> *tile = layerData->first_node("tile");
 		for(int y=0; y < m_mapSize.y; y++)
 		{
