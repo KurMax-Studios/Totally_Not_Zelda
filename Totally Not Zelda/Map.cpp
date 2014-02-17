@@ -120,3 +120,8 @@ void Map::loadFromFile(std::string filename)
 
 	delete[] rawMapData;
 }
+
+Tile& Map::getTile(sf::Vector2i pos)
+{
+	return m_tiles[pos.y][pos.x];
+}

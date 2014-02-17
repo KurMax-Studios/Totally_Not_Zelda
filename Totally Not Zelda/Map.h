@@ -15,6 +15,7 @@ public:
 	~Map(void);
 
 	void loadFromFile(std::string filename);
+	Tile& getTile(sf::Vector2i);
 
 private:
 	sf::Vector2i m_mapSize;
