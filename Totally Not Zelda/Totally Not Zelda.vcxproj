@@ -87,6 +87,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Map.cpp" />
     <ClCompile Include="Tile.cpp" />
+    <ClCompile Include="Tileset.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="base64.h" />
@@ -95,6 +96,8 @@
     <ClInclude Include="Map.h" />
     <ClInclude Include="rapidxml.hpp" />
     <ClInclude Include="Tile.h" />
+    <ClInclude Include="Tileset.h" />
+    <ClInclude Include="TilesetInfo.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -8,6 +8,7 @@
 #include "rapidxml.hpp"
 #include "base64.h"
 #include "Tile.h"
+#include "TilesetInfo.h"
 class Map
 {
 public:
@@ -18,6 +19,7 @@ public:
 	Tile& getTile(sf::Vector2i);
 
 private:
+	TilesetInfo m_tilesetInfo;
 	sf::Vector2i m_mapSize;
 	sf::Vector2i m_tileSize;
 

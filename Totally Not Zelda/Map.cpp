@@ -32,6 +32,7 @@ void Map::loadFromFile(std::string filename)
 	std::string mapWidth = mapData.first_node("map")->first_attribute("width")->value();
 	std::string mapHeight = mapData.first_node("map")->first_attribute("height")->value();
 	
+	
 	//Convert the resulting strings to ints and store them
 	m_mapSize.x = std::stoi(mapWidth);
 	m_mapSize.y = std::stoi(mapHeight);
@@ -42,6 +43,18 @@ void Map::loadFromFile(std::string filename)
 	{
 		m_tiles[i].resize(m_mapSize.x);
 	}
+
+	//Load tileset properties
+	rapidxml::xml_node<> *tileset = mapData.first_node("map")->first_node("tileset");
+	m_tilesetInfo.firstId = std::stoi(tileset->first_attribute("firstgid")->value());
+	m_tilesetInfo.name = tileset->first_attribute("name")->value();
+	m_tilesetInfo.tileSize.x = std::stoi(tileset->first_attribute("tilewidth")->value());
+	m_tilesetInfo.tileSize.y = std::stoi(tileset->first_attribute("tileheight")->value());
+	m_tilesetInfo.spacing = std::stoi(tileset->first_attribute("spacing")->value());
+	m_tilesetInfo.margin = std::stoi(tileset->first_attribute("margin")->value());
+	m_tilesetInfo.filePath = tileset->first_node("image")->first_attribute("source")->value();
+	m_tilesetInfo.imageSize.x = std::stoi(tileset->first_node("image")->first_attribute("width")->value());
+	m_tilesetInfo.imageSize.y = std::stoi(tileset->first_node("image")->first_attribute("height")->value());
 
 
 	//Check if the first layer has any data encoding
