@@ -86,6 +86,7 @@
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Map.cpp" />
+    <ClCompile Include="MapRenderer.cpp" />
     <ClCompile Include="Tile.cpp" />
     <ClCompile Include="Tileset.cpp" />
   </ItemGroup>
@@ -94,6 +95,7 @@
     <ClInclude Include="FpsCounter.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="Map.h" />
+    <ClInclude Include="MapRenderer.h" />
     <ClInclude Include="rapidxml.hpp" />
     <ClInclude Include="Tile.h" />
     <ClInclude Include="Tileset.h" />

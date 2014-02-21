@@ -10,6 +10,5 @@ public:
 	int spacing;
 	int margin;
 	std::string filePath;
-	sf::Vector2f imageSize;
+	sf::Vector2i imageSize;
 };
-

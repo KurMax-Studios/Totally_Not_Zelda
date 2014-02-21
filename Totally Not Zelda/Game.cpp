@@ -1,7 +1,7 @@
 #include "Game.h"
 
 
-Game::Game(void)
+Game::Game(void) : m_mapRenderer(m_map)
 {
 }
 
@@ -24,6 +24,8 @@ void Game::start()
 void Game::init()
 {
 	m_map.loadFromFile("mapBase64.tmx");
+	m_mapRenderer.init();
+
 	//setup the main window
 	m_window.create(sf::VideoMode(800, 600), "Totally Not Zelda");
 	m_window.setFramerateLimit(60);
@@ -47,6 +49,7 @@ void Game::draw()
 {
 	m_window.clear(sf::Color::Magenta);
 	//DRAW STUFF HERE
+	m_window.draw(m_mapRenderer);
 	m_window.display();
 	m_fpsCounter.countFrame();
 }

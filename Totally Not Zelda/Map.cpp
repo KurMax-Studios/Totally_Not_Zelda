@@ -138,3 +138,8 @@ Tile& Map::getTile(sf::Vector2i pos)
 {
 	return m_tiles[pos.y][pos.x];
 }
+
+TilesetInfo& Map::getTilesetInfo()
+{
+	return m_tilesetInfo;
+}

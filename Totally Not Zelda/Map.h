@@ -17,6 +17,7 @@ public:
 
 	void loadFromFile(std::string filename);
 	Tile& getTile(sf::Vector2i);
+	TilesetInfo& getTilesetInfo();
 
 private:
 	TilesetInfo m_tilesetInfo;

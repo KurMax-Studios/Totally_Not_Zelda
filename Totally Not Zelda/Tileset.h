@@ -9,7 +9,8 @@ public:
 	~Tileset(void);
 
 	void loadFromTilesetInfo(TilesetInfo);
-	sf::Sprite getSprite(int);
+	sf::Sprite getSprite(int) const;
+	TilesetInfo getTilesetInfo() const;
 private:
 	TilesetInfo m_tileSetinfo;
 	sf::Texture m_texture;
