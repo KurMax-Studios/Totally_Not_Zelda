@@ -2,7 +2,9 @@
 #include "SFML\Graphics.hpp"
 #include "Map.h"
 #include "Tileset.h"
-class MapRenderer : public sf::Drawable
+class MapRenderer : 
+	public sf::Drawable, 
+	public sf::Transformable
 {
 public:
 	MapRenderer(Map&);

@@ -18,6 +18,7 @@ public:
 	void loadFromFile(std::string filename);
 	Tile& getTile(sf::Vector2i);
 	TilesetInfo& getTilesetInfo();
+	sf::Vector2i getMapSize();
 
 private:
 	TilesetInfo m_tilesetInfo;

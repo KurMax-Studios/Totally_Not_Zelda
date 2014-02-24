@@ -24,8 +24,6 @@ void Tileset::loadFromTilesetInfo(TilesetInfo info)
 
 sf::Sprite Tileset::getSprite(int id) const
 {
-	//Since global ids starts at 1, and using 0 index is simpler
-	//id = id -1;
 
 	sf::Sprite sprite(m_texture);
 

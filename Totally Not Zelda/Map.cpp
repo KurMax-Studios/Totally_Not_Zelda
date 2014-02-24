@@ -143,3 +143,8 @@ TilesetInfo& Map::getTilesetInfo()
 {
 	return m_tilesetInfo;
 }
+
+sf::Vector2i Map::getMapSize()
+{
+	return m_mapSize;
+}

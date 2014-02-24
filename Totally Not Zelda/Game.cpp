@@ -28,7 +28,8 @@ void Game::init()
 
 	//setup the main window
 	m_window.create(sf::VideoMode(800, 600), "Totally Not Zelda");
-	m_window.setFramerateLimit(60);
+	//m_window.setFramerateLimit(60);
+
 
 	m_running = true;
 }
