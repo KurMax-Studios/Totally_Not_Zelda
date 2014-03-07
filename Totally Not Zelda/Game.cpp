@@ -1,7 +1,7 @@
 #include "Game.h"
 
 
-Game::Game(void) : m_mapRenderer(m_map)
+Game::Game(void) : m_mapRenderer(m_map), m_playerRenderer(m_player)
 {
 }
 
@@ -24,11 +24,17 @@ void Game::start()
 void Game::init()
 {
 	m_map.loadFromFile("mapBase64.tmx");
+
 	m_mapRenderer.init();
+	m_playerRenderer.init();
 
 	//setup the main window
 	m_window.create(sf::VideoMode(800, 600), "Totally Not Zelda");
-	//m_window.setFramerateLimit(60);
+	m_window.setFramerateLimit(60);
+
+	m_view.setSize(m_window.getSize().x/2, m_window.getSize().y/2);
+
+	m_player.setPosition(sf::Vector2f(100, 200));
 
 
 	m_running = true;
@@ -44,14 +50,27 @@ void Game::update()
 		}
 	}
 
-	//std::cout << m_fpsCounter.getRoundedFps() << std::endl;
+	m_playerRenderer.update();
 }
 void Game::draw()
 {
 	m_window.clear(sf::Color::Magenta);
-	//DRAW STUFF HERE
+	//set the view to center on the player
+	m_view.setCenter(m_player.getPosition());
+	m_window.setView(m_view);
+
+	//Draw everything in the game world here
 	m_window.draw(m_mapRenderer);
+	m_window.draw(m_playerRenderer);
+
+	//Restore the deafult view to draw static elements and ui
+	m_window.setView(m_window.getDefaultView());
+
+	//Draw static elements and ui
+
+
 	m_window.display();
+
 	m_fpsCounter.countFrame();
 }
 void Game::cleanup()
