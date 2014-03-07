@@ -5,13 +5,14 @@ class DebugOverlay : public sf::Drawable
 {
 private:
 	const char* FONT;
-
-	sf::Text m_fps;
+	sf::Font m_font;
 public:
+	sf::Text m_fps;
+
 	DebugOverlay(void);
 	~DebugOverlay(void);
-	sf::Font initFont();
-	void styleText(sf::Font font, sf::Text text);
-	void updateText(std::string textString);
+	sf::Font& initFont();
+	void styleText(sf::Font &font, sf::Text &text);
+	void updateText(std::string textString, sf::Text &text);
 	virtual void draw(sf::RenderTarget &target, sf::RenderStates states) const;
 };

@@ -30,7 +30,7 @@ void Game::init()
 	m_window.create(sf::VideoMode(800, 600), "Totally Not Zelda");
 	//m_window.setFramerateLimit(60);
 
-
+	m_debugOverlay.styleText(m_debugOverlay.initFont(), m_debugOverlay.m_fps);
 	m_running = true;
 }
 void Game::update()
@@ -43,7 +43,6 @@ void Game::update()
 			m_running = false;
 		}
 	}
-
 	//std::cout << m_fpsCounter.getRoundedFps() << std::endl;
 }
 void Game::draw()
@@ -51,6 +50,7 @@ void Game::draw()
 	m_window.clear(sf::Color::Magenta);
 	//DRAW STUFF HERE
 	m_window.draw(m_mapRenderer);
+	m_window.draw(m_debugOverlay);
 	m_window.display();
 	m_fpsCounter.countFrame();
 }

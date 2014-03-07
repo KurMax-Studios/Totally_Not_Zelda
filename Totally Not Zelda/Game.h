@@ -4,6 +4,7 @@
 #include "FpsCounter.h"
 #include "Map.h"
 #include "MapRenderer.h"
+#include "DebugOverlay.h"
 class Game
 {
 public:
@@ -19,6 +20,7 @@ private:
 
 	Map m_map;
 	FpsCounter m_fpsCounter;
+	DebugOverlay m_debugOverlay;
 
 	MapRenderer m_mapRenderer;
 
