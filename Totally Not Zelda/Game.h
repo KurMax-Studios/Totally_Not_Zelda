@@ -6,6 +6,7 @@
 #include "MapRenderer.h"
 #include "Player.h"
 #include "PlayerRenderer.h"
+#include "PlayerController.h"
 class Game
 {
 public:
@@ -25,6 +26,8 @@ private:
 
 	MapRenderer m_mapRenderer;
 	PlayerRenderer m_playerRenderer;
+
+	PlayerController m_playerController;
 
 	bool m_running;
 	sf::RenderWindow m_window;

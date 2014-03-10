@@ -1,7 +1,7 @@
 #include "Game.h"
 
 
-Game::Game(void) : m_mapRenderer(m_map), m_playerRenderer(m_player)
+Game::Game(void) : m_mapRenderer(m_map), m_playerRenderer(m_player), m_playerController(m_player)
 {
 }
 
@@ -27,6 +27,7 @@ void Game::init()
 
 	m_mapRenderer.init();
 	m_playerRenderer.init();
+	m_playerController.init();
 
 	//setup the main window
 	m_window.create(sf::VideoMode(800, 600), "Totally Not Zelda");
@@ -49,7 +50,7 @@ void Game::update()
 			m_running = false;
 		}
 	}
-
+	m_playerController.update();
 	m_playerRenderer.update();
 }
 void Game::draw()
