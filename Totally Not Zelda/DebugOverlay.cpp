@@ -41,7 +41,7 @@ void DebugOverlay::styleText(sf::Font &font, sf::Text &text)
 	// set the text style
 	text.setStyle(sf::Text::Bold);
 
-	// set position besides of map REDO SO ITS NOT STATIC NUMBERS
+	// set position besides of map TODO REDO SO ITS NOT STATIC NUMBERS
 	text.setPosition(324, 0);
 }
 void DebugOverlay::draw(sf::RenderTarget &target, sf::RenderStates states) const
