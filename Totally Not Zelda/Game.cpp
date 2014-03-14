@@ -28,6 +28,7 @@ void Game::init()
 	m_mapRenderer.init();
 	m_playerRenderer.init();
 	m_playerController.init();
+	m_debugOverlay.init();
 
 	//setup the main window
 	m_window.create(sf::VideoMode(800, 600), "Totally Not Zelda");
@@ -37,7 +38,6 @@ void Game::init()
 
 	m_player.setPosition(sf::Vector2f(100, 200));
 
-	m_debugOverlay.styleText(m_debugOverlay.initFont(), m_debugOverlay.m_fps);
 	m_running = true;
 }
 void Game::update()
@@ -52,6 +52,9 @@ void Game::update()
 	}
 	m_playerController.update();
 	m_playerRenderer.update();
+
+	//TODO think if we should hardcode fps into the function
+	m_debugOverlay.updateText(std::to_string(m_fpsCounter.getRoundedFps()), m_debugOverlay.m_fps);
 }
 void Game::draw()
 {

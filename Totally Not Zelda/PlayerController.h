@@ -17,10 +17,12 @@ private:
 		MOVE_UP,
 		MOVE_DOWN,
 		MOVE_LEFT, 
-		MOVE_RIGHT
+		MOVE_RIGHT,
+		SPRINT,
+		NUM_VALUES
 	};
 	Player &m_player;
 	std::vector<sf::Keyboard::Key> m_keys;
-
+	float m_speed;
 };
 
