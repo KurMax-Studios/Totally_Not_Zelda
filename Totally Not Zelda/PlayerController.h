@@ -16,7 +16,7 @@ private:
 	{
 		MOVE_UP,
 		MOVE_DOWN,
-		MOVE_LEFT, 
+		MOVE_LEFT,
 		MOVE_RIGHT,
 		SPRINT,
 		NUM_VALUES

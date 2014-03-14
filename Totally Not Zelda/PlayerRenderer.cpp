@@ -12,7 +12,7 @@ PlayerRenderer::~PlayerRenderer(void)
 
 void PlayerRenderer::init()
 {
-	if(!m_texture.loadFromFile("hero.png"))
+	if(!m_texture.loadFromFile("hero.gif"))
 	{
 		std::cout << "Loading sprite failed!" << std::endl;
 		exit(1);
