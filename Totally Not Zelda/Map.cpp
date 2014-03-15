@@ -148,3 +148,11 @@ sf::Vector2i Map::getMapSize()
 {
 	return m_mapSize;
 }
+float Map::getMapXSize()
+{
+	return m_mapSize.x * m_tilesetInfo.tileSize.x;
+}
+float Map::getMapYSize()
+{
+	return m_mapSize.y * m_tilesetInfo.tileSize.y;
+}

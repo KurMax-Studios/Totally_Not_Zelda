@@ -19,11 +19,12 @@ public:
 	Tile& getTile(sf::Vector2i);
 	TilesetInfo& getTilesetInfo();
 	sf::Vector2i getMapSize();
+	float getMapXSize();
+	float getMapYSize();
 
 private:
 	TilesetInfo m_tilesetInfo;
 	sf::Vector2i m_mapSize;
-	sf::Vector2i m_tileSize;
 
 	std::vector<std::vector<Tile>> m_tiles; //Acsessed [y][x] becuse of how .tmx maps sort tiles
 };
