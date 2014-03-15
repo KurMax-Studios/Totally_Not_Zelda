@@ -23,7 +23,6 @@ void PlayerController::init()
 void PlayerController::update()
 {
 	readInput();
-	executeCommands();
 }
 
 void PlayerController::readInput()
@@ -41,8 +40,4 @@ void PlayerController::readInput()
 		m_player.move(sf::Vector2f(-m_speed, 0.0f));
 	if(sf::Keyboard::isKeyPressed(m_keys[MOVE_RIGHT]))
 		m_player.move(sf::Vector2f(m_speed, 0.0f));
-}
-void PlayerController::executeCommands()
-{
-
 }

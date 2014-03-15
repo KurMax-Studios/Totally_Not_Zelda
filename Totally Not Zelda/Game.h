@@ -8,6 +8,7 @@
 #include "Player.h"
 #include "PlayerRenderer.h"
 #include "PlayerController.h"
+#include "CollisionManager.h"
 class Game
 {
 public:
@@ -25,6 +26,7 @@ private:
 	Player m_player;
 	FpsCounter m_fpsCounter;
 	DebugOverlay m_debugOverlay;
+	CollisionManager m_collisionManager;
 
 	MapRenderer m_mapRenderer;
 	PlayerRenderer m_playerRenderer;

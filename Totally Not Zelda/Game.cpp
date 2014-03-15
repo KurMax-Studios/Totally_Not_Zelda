@@ -1,7 +1,7 @@
 #include "Game.h"
 
 
-Game::Game(void) : m_mapRenderer(m_map), m_playerRenderer(m_player), m_playerController(m_player)
+Game::Game(void) : m_mapRenderer(m_map), m_playerRenderer(m_player), m_playerController(m_player), m_collisionManager(m_player, m_map)
 {
 }
 
@@ -34,7 +34,7 @@ void Game::init()
 	m_window.create(sf::VideoMode(800, 600), "Totally Not Zelda");
 	m_window.setFramerateLimit(60);
 
-	m_view.setSize(m_window.getSize().x/2, m_window.getSize().y/2);
+	m_view.setSize(m_window.getSize().x/2.0f, m_window.getSize().y/2.0f);
 
 	m_player.setPosition(sf::Vector2f(100, 200));
 
@@ -52,6 +52,7 @@ void Game::update()
 	}
 	m_playerController.update();
 	m_playerRenderer.update();
+	m_collisionManager.update();
 
 	//TODO think if we should hardcode fps into the function
 	m_debugOverlay.updateText(std::to_string(m_fpsCounter.getRoundedFps()), m_debugOverlay.m_fps);
