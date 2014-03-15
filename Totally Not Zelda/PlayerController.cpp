@@ -32,7 +32,7 @@ void PlayerController::readInput()
 {
 	if(sf::Keyboard::isKeyPressed(m_keys[DEFEND]))
 		m_player.defend();//call defend function
-	else if(sf::Keyboard::isKeyPressed(m_keys[SPRINT]) && m_player.isDefending() != true)
+	else if(sf::Keyboard::isKeyPressed(m_keys[SPRINT]))
 		m_player.setSpeed(3.0f);
 	else{
 		m_player.setSpeed(1.0f);
