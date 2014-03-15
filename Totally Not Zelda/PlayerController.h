@@ -19,10 +19,11 @@ private:
 		MOVE_LEFT,
 		MOVE_RIGHT,
 		SPRINT,
+		ATTACK,
+		DEFEND,
 		NUM_VALUES
 	};
 	Player &m_player;
 	std::vector<sf::Keyboard::Key> m_keys;
-	float m_speed;
 };
 
