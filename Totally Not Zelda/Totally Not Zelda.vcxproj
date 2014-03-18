@@ -94,6 +94,7 @@
     <ClCompile Include="PlayerRenderer.cpp" />
     <ClCompile Include="Tile.cpp" />
     <ClCompile Include="Tileset.cpp" />
+    <ClCompile Include="TilesetInfo.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="base64.h" />

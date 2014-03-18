@@ -9,6 +9,8 @@ public:
 	void update();
 private:
 	void checkCollisions();
+	void checkBounds();
+	void checkTerrain();
 	Player& m_player;
 	Map& m_map;
 };

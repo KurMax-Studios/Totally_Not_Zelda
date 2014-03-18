@@ -22,6 +22,8 @@ public:
 	float getMapXSize();
 	float getMapYSize();
 
+	sf::Vector2i convertWorldCoordToMapCoords(sf::Vector2f);
+
 private:
 	TilesetInfo m_tilesetInfo;
 	sf::Vector2i m_mapSize;

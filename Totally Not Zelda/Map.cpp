@@ -56,6 +56,22 @@ void Map::loadFromFile(std::string filename)
 	m_tilesetInfo.imageSize.x = std::stoi(tileset->first_node("image")->first_attribute("width")->value());
 	m_tilesetInfo.imageSize.y = std::stoi(tileset->first_node("image")->first_attribute("height")->value());
 
+	//Load TileProperties 
+	//Itterate over all tiles that have properties set
+	for(rapidxml::xml_node<> *tile = tileset->first_node("tile"); tile != 0x0; tile = tile->next_sibling("tile"))
+	{
+		int id = std::stoi(tile->first_attribute("id")->value());
+		rapidxml::xml_node<> *properties = tile->first_node("properties");
+		//Itterate over all properties
+		for(rapidxml::xml_node<> *property = properties->first_node("property"); property != 0x0; property = property->next_sibling("property"))
+		{
+			if(strcmp(property->first_attribute("name")->value(), "solid") == 0)
+			{
+				m_tilesetInfo.setTileSolid(id, (strcmp(property->first_attribute("value")->value(), "true")) == 0);
+			}
+		}
+	}
+
 
 	//Check if the first layer has any data encoding
 	rapidxml::xml_node<> *layerData = mapData.first_node("map")->first_node("layer")->first_node("data");
@@ -150,9 +166,17 @@ sf::Vector2i Map::getMapSize()
 }
 float Map::getMapXSize()
 {
-	return m_mapSize.x * m_tilesetInfo.tileSize.x;
+	return (float)(m_mapSize.x * m_tilesetInfo.tileSize.x);
 }
 float Map::getMapYSize()
 {
-	return m_mapSize.y * m_tilesetInfo.tileSize.y;
+	return (float)(m_mapSize.y * m_tilesetInfo.tileSize.y);
+}
+
+sf::Vector2i Map::convertWorldCoordToMapCoords(sf::Vector2f worldCoord)
+{
+	sf::Vector2i mapCoord;
+	mapCoord.x = (int)(worldCoord.x / m_tilesetInfo.tileSize.x); //Explicitly converting to int to make sure we do float divisions
+	mapCoord.y = (int)(worldCoord.y / m_tilesetInfo.tileSize.y); //The conversion truncates the value, wich is what we want since we want to know what tile we are in
+	return mapCoord;
 }
