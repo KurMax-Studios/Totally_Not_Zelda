@@ -8,8 +8,11 @@
 #include "Player.h"
 #include "PlayerRenderer.h"
 #include "PlayerController.h"
+<<<<<<< HEAD
 #include "Options.h"
+=======
 #include "CollisionManager.h"
+>>>>>>> origin/KurinDev
 class Game
 {
 public:
@@ -27,8 +30,11 @@ private:
 	Player m_player;
 	FpsCounter m_fpsCounter;
 	DebugOverlay m_debugOverlay;
+<<<<<<< HEAD
 	Options m_options;
+=======
 	CollisionManager m_collisionManager;
+>>>>>>> origin/KurinDev
 
 	MapRenderer m_mapRenderer;
 	PlayerRenderer m_playerRenderer;

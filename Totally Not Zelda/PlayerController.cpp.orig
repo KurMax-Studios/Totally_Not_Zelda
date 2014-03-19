@@ -48,5 +48,13 @@ void PlayerController::readInput()
 	if(sf::Keyboard::isKeyPressed(m_keys[MOVE_LEFT]))
 		m_player.move(sf::Vector2f(-m_player.getSpeed(), 0.0f));
 	if(sf::Keyboard::isKeyPressed(m_keys[MOVE_RIGHT]))
+<<<<<<< HEAD
 		m_player.move(sf::Vector2f(m_player.getSpeed(), 0.0f));
 }	
+void PlayerController::executeCommands()
+{
+
+=======
+		m_player.move(sf::Vector2f(m_speed, 0.0f));
+>>>>>>> origin/KurinDev
+}

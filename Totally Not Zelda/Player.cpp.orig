@@ -3,9 +3,12 @@
 
 Player::Player(void)
 {
+<<<<<<< HEAD
 	m_speed = 1.0f;
+=======
 	//TODO: This should probably not be hardcoded
 	m_size = sf::Vector2i(16, 16);
+>>>>>>> origin/KurinDev
 }
 
 
@@ -41,21 +44,21 @@ void Player::move(sf::Vector2f offset)
 {
 	m_position += offset;
 }
-
-sf::Vector2i Player::getSize() const
-{
-	return m_size;
-}
-
+<<<<<<< HEAD
 void Player::attack()
 {
 	//TODO attack something maybe
 	std::cout << "FEARSOME ATTACK!!!!!" << std::endl;
 }
-
 void Player::defend()
 {
 	//TODO defend tha shit out of stuff
 	setSpeed(0.2f);
 	setDefending(true);
+=======
+
+sf::Vector2i Player::getSize() const
+{
+	return m_size;
+>>>>>>> origin/KurinDev
 }

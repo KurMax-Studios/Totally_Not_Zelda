@@ -11,7 +11,6 @@ public:
 	void update();
 private:
 	void readInput();
-	void executeCommands();
 	enum Controls
 	{
 		MOVE_UP,
