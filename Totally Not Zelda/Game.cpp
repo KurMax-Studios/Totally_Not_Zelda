@@ -3,6 +3,9 @@
 
 Game::Game(void) : m_mapRenderer(m_map), m_playerRenderer(m_player), m_playerController(m_player)
 {
+	m_windowX = 800;
+	m_windowY = 600;
+	m_options.initOptions();
 }
 
 
@@ -31,7 +34,7 @@ void Game::init()
 	m_debugOverlay.init();
 
 	//setup the main window
-	m_window.create(sf::VideoMode(800, 600), "Totally Not Zelda");
+	m_window.create(sf::VideoMode(m_windowX, m_windowY), "Totally Not Zelda");
 	m_window.setFramerateLimit(60);
 
 	m_view.setSize(m_window.getSize().x/2, m_window.getSize().y/2);

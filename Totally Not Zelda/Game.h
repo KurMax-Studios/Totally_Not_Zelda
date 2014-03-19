@@ -8,6 +8,7 @@
 #include "Player.h"
 #include "PlayerRenderer.h"
 #include "PlayerController.h"
+#include "Options.h"
 class Game
 {
 public:
@@ -25,6 +26,7 @@ private:
 	Player m_player;
 	FpsCounter m_fpsCounter;
 	DebugOverlay m_debugOverlay;
+	Options m_options;
 
 	MapRenderer m_mapRenderer;
 	PlayerRenderer m_playerRenderer;
@@ -35,5 +37,7 @@ private:
 	sf::RenderWindow m_window;
 	sf::View m_view;
 
+	int m_windowX;
+	int m_windowY;
 };
 

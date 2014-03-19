@@ -42,6 +42,7 @@ void Player::move(sf::Vector2f offset)
 void Player::attack()
 {
 	//TODO attack something maybe
+	std::cout << "FEARSOME ATTACK!!!!!" << std::endl;
 }
 void Player::defend()
 {
