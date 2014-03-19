@@ -5,7 +5,7 @@ Player::Player(void)
 {
 	m_speed = 1.0f;
 	//TODO: This should probably not be hardcoded
-	m_size = sf::Vector2i(16, 16);
+	m_size = sf::Vector2i(32, 32);
 }
 
 
