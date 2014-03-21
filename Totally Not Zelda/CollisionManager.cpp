@@ -18,7 +18,7 @@ void CollisionManager::update()
 void CollisionManager::checkCollisions()
 {
 	checkBounds();
-	checkTerrain();
+	//checkTerrain();
 }
 void CollisionManager::checkBounds()
 {
