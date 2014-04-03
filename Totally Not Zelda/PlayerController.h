@@ -2,10 +2,11 @@
 #include <vector>
 #include "SFML\Window.hpp"
 #include "Player.h"
+#include "Options.h"
 class PlayerController
 {
 public:
-	PlayerController(Player&);
+	PlayerController(Player&, Options&);
 	~PlayerController(void);
 	void init();
 	void update();
@@ -23,6 +24,7 @@ private:
 		NUM_VALUES
 	};
 	Player &m_player;
+	Options &m_options;
 	std::vector<sf::Keyboard::Key> m_keys;
 };
 

@@ -1,7 +1,7 @@
 #include "PlayerController.h"
 
 
-PlayerController::PlayerController(Player& player) : m_player(player)
+PlayerController::PlayerController(Player& player, Options& options) : m_player(player), m_options(options)
 {
 	m_keys.resize(NUM_VALUES);
 }
@@ -13,13 +13,13 @@ PlayerController::~PlayerController(void)
 
 void PlayerController::init()
 {
-	m_keys[Controls::MOVE_UP] = sf::Keyboard::W;
-	m_keys[Controls::MOVE_DOWN] = sf::Keyboard::S;
-	m_keys[Controls::MOVE_LEFT] = sf::Keyboard::A;
-	m_keys[Controls::MOVE_RIGHT] = sf::Keyboard::D;
-	m_keys[Controls::SPRINT] = sf::Keyboard::LShift;
-	m_keys[Controls::ATTACK] = sf::Keyboard::Space;
-	m_keys[Controls::DEFEND] = sf::Keyboard::C;
+	m_keys[Controls::MOVE_UP] = (sf::Keyboard::Key)m_options.getOption(Options::CONTROLS_UP);
+	m_keys[Controls::MOVE_DOWN] = (sf::Keyboard::Key)m_options.getOption(Options::CONTROLS_DOWN);
+	m_keys[Controls::MOVE_LEFT] = (sf::Keyboard::Key)m_options.getOption(Options::CONTROLS_LEFT);
+	m_keys[Controls::MOVE_RIGHT] = (sf::Keyboard::Key)m_options.getOption(Options::CONTROLS_RIGHT);
+	m_keys[Controls::SPRINT] = (sf::Keyboard::Key)m_options.getOption(Options::CONTROLS_SPRINT);
+	m_keys[Controls::ATTACK] = (sf::Keyboard::Key)m_options.getOption(Options::CONTROLS_ATTACK);
+	m_keys[Controls::DEFEND] = (sf::Keyboard::Key)m_options.getOption(Options::CONTROLS_DEFEND);
 }
 
 void PlayerController::update()

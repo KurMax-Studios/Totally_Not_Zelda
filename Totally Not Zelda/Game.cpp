@@ -1,11 +1,11 @@
 #include "Game.h"
 
 
-Game::Game(void) : m_mapRenderer(m_map), m_playerRenderer(m_player), m_playerController(m_player), m_collisionManager(m_player, m_map)
+Game::Game(void) : m_mapRenderer(m_map), m_playerRenderer(m_player), m_playerController(m_player, m_options), m_collisionManager(m_player, m_map)
 {
-	m_windowX = 800;
-	m_windowY = 600;
 	m_options.initOptions();
+	m_windowX = m_options.getOption(Options::SCREEN_X);
+	m_windowY = m_options.getOption(Options::SCREEN_Y);
 }
 
 
