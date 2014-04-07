@@ -6,6 +6,7 @@ Player::Player(void)
 	m_speed = 1.0f;
 	//TODO: This should probably not be hardcoded
 	m_size = sf::Vector2i(32, 32);
+	m_orientation = Orientation::DOWN;
 }
 
 
@@ -58,4 +59,13 @@ void Player::defend()
 	//TODO defend tha shit out of stuff
 	setSpeed(0.2f);
 	setDefending(true);
+}
+
+Player::Orientation Player::getOrientation()
+{
+	return m_orientation;
+}
+void Player::setOrientation(Player::Orientation orientation)
+{
+	m_orientation = orientation;
 }

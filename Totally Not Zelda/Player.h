@@ -6,6 +6,13 @@ class Player
 public:
 	Player(void);
 	~Player(void);
+	enum Orientation
+	{
+		LEFT,
+		RIGHT,
+		UP,
+		DOWN
+	};
 
 	sf::Vector2f getPosition() const;
 	void setPosition(sf::Vector2f);
@@ -17,10 +24,14 @@ public:
 	void defend();
 	bool isDefending();
 	void setDefending(bool state);
+	Orientation getOrientation();
+	void setOrientation(Orientation);
+
 private:
 	sf::Vector2f m_position;
 	sf::Vector2i m_size;
 	float m_speed;
 	bool m_defending;
+	Orientation m_orientation;
 };
 

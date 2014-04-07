@@ -42,11 +42,23 @@ void PlayerController::readInput()
 		m_player.attack();//call attack function
 
 	if(sf::Keyboard::isKeyPressed(m_keys[MOVE_UP]))
+	{
 		m_player.move(sf::Vector2f(0.0f, -m_player.getSpeed()));
+		m_player.setOrientation(Player::Orientation::UP);
+	}
 	if(sf::Keyboard::isKeyPressed(m_keys[MOVE_DOWN]))
+	{
 		m_player.move(sf::Vector2f(0.0f, m_player.getSpeed()));
+		m_player.setOrientation(Player::Orientation::DOWN);
+	}
 	if(sf::Keyboard::isKeyPressed(m_keys[MOVE_LEFT]))
+	{	
 		m_player.move(sf::Vector2f(-m_player.getSpeed(), 0.0f));
+		m_player.setOrientation(Player::Orientation::LEFT);
+	}
 	if(sf::Keyboard::isKeyPressed(m_keys[MOVE_RIGHT]))
+	{
 		m_player.move(sf::Vector2f(m_player.getSpeed(), 0.0f));
+		m_player.setOrientation(Player::Orientation::RIGHT);
+	}
 }	

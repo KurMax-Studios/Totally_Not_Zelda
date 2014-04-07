@@ -18,7 +18,7 @@ void CollisionManager::update()
 void CollisionManager::checkCollisions()
 {
 	checkBounds();
-	//checkTerrain();
+	checkTerrain();
 }
 void CollisionManager::checkBounds()
 {
@@ -49,6 +49,13 @@ void CollisionManager::checkTerrain()
 	if(m_map.getTilesetInfo().isTileSolid(topLeftTile))
 	{
 		std::cout << "Collision at top left corner" << std::endl;
+		switch (m_player.getOrientation())
+		{
+		Player::UP:
+			break;
+		default:
+			break;
+		}
 	}
 
 	//Set the position to the upper right corner
