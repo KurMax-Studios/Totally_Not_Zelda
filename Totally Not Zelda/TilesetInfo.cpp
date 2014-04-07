@@ -14,5 +14,7 @@ void TilesetInfo::setTileSolid(int id, bool value)
 
 bool TilesetInfo::isTileSolid(int id)
 {
+	//Convert gid to tileset id
+	id = id - firstId;
 	return m_tileProperties[id].solid;
 }
