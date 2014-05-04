@@ -7,11 +7,17 @@ Player::Player(void)
 	//TODO: This should probably not be hardcoded
 	m_size = sf::Vector2i(32, 32);
 	m_orientation = Orientation::DOWN;
+	m_velocity = sf::Vector2f(0, 0);
 }
 
 
 Player::~Player(void)
 {
+}
+
+void Player::update()
+{
+	move(m_velocity);
 }
 
 sf::Vector2f Player::getPosition() const
@@ -30,6 +36,16 @@ float Player::getSpeed()
 {
 	return m_speed;
 }
+
+void Player::setVelocity(sf::Vector2f velocity)
+{
+	m_velocity = velocity;
+}
+sf::Vector2f Player::getVelocity()
+{
+	return m_velocity;
+}
+
 void Player::setDefending(bool state)
 {
 	m_defending = state;

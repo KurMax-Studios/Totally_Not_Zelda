@@ -54,6 +54,7 @@ void Game::update()
 		}
 	}
 	m_playerController.update();
+	m_player.update();
 	m_playerRenderer.update();
 	m_collisionManager.update();
 
