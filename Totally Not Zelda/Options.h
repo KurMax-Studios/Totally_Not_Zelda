@@ -3,6 +3,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <list>
 class Options
 {
 public:
@@ -18,8 +19,8 @@ public:
 	};
 
 	int getOption(optionNames option);
-
-	void setOption();
+	void setOption(optionNames option, int keyCode);
+	void saveOption(optionNames option, int KeyCode);
 	
 private:
 	struct config
