@@ -73,7 +73,6 @@ void Options::parceInitOptions(std::string name, int value){
 		m_optionValues.controls_defend = value;
 	else
 		std::cout << name << " is not found in " << FILENAME << std::endl;
-	std::cout << "reading config file succeded" << std::endl;
 }
 
 void Options::setupConfigFile(std::ofstream& file){
@@ -134,7 +133,93 @@ int Options::getOption(optionNames option){
 		break;
 	}
 }
+//TODO fix this so it works and saves the new file only when save is pressed.
+void Options::setOption(optionNames option, int KeyCode){
+	switch (option)
+	{
+	case Options::SCREEN_X:
+		m_optionValues.window_x = KeyCode;
+		break;
+	case Options::SCREEN_Y:
+		m_optionValues.window_y = KeyCode;
+		break;
+	case Options::VOLUME:
+		m_optionValues.audio_volume = KeyCode;
+		break;
+	case Options::CONTROLS_UP:
+		m_optionValues.controls_up = KeyCode;
+		break;
+	case Options::CONTROLS_DOWN:
+		m_optionValues.controls_down = KeyCode;
+		break;
+	case Options::CONTROLS_LEFT:
+		m_optionValues.controls_left = KeyCode;
+		break;
+	case Options::CONTROLS_RIGHT:
+		m_optionValues.controls_right = KeyCode;
+		break;
+	case Options::CONTROLS_SPRINT:
+		m_optionValues.controls_sprint = KeyCode;
+		break;
+	case Options::CONTROLS_ATTACK:
+		m_optionValues.controls_attack = KeyCode;
+		break;
+	case Options::CONTROLS_DEFEND:
+		m_optionValues.controls_defend = KeyCode;
+		break;
+	default:
+		std::cout << "non-exsisting name for option" << std::endl;
+		exit(5);
+		break;
+	}
+	saveOption(option, KeyCode);
+}
 
-void Options::setOption(){
-
+void Options::saveOption(optionNames option, int KeyCode){
+	std::fstream file(FILENAME);
+	if(!file.is_open()){
+		std::cout << "Could not save changes to " << FILENAME << std::endl;
+		exit(6);
+	}
+	std::vector<std::string> temp;
+	temp.resize(100);
+	std::vector<std::string> name;
+	name.resize(100);
+	int i=0;
+	while(getline(file, temp[i])){
+			if(temp[i].find_first_of("=") != std::string::npos){
+				int splitPoint = temp[i].find_first_of("=");
+				name[i] = temp[i].substr(0, splitPoint);
+				i++;
+			}
+		}
+	file.close();
+	temp.resize(i);
+	name.resize(i);
+	temp[option] = name[option] + "=" + std::to_string(KeyCode);
+	//Having problems with overwriting by using fstream, reopening it instead using ofstream
+	//type switch vector temp to a list to inseart headers like [screen], [audio] and [controls]
+	std::list<std::string> tempList(temp.begin(), temp.end());
+	tempList.push_front("[screen]");
+	std::list<std::string>::iterator it;
+	for(it = tempList.begin();it != tempList.end();it++){
+		if(((std::string)*it).find("volume")==0){
+			tempList.insert(it, "[audio]");
+		}
+		if(((std::string)*it).find("up")==0){
+			tempList.insert(it, "[controls]");
+		}
+	}
+	std::ofstream writeFile(FILENAME);
+	if(!writeFile.is_open()){
+		std::cout << "Could not load file:" << FILENAME << std::endl;
+		exit(7);
+	}
+	it = tempList.begin();
+	i=0;
+	for(it = tempList.begin();it != tempList.end();it++){
+		writeFile << *it << std::endl;
+		i++;
+	}
+	writeFile.close();
 }
