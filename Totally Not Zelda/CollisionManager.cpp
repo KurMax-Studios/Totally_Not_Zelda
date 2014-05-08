@@ -44,11 +44,13 @@ void CollisionManager::checkTerrain()
 {
 	int topLeftTile, topRightTile, bottomLeftTile, bottomRightTile;
 	sf::Vector2f tempPosition;
+	bool collided = false;
 
 	topLeftTile = m_map.getTile(m_map.convertWorldCoordToMapCoords(m_player.getPosition())).id;
 	if(m_map.getTilesetInfo().isTileSolid(topLeftTile))
 	{
 		std::cout << "Collision at top left corner" << std::endl;
+		collided = true;
 	}
 
 	//Set the position to the upper right corner
@@ -58,6 +60,7 @@ void CollisionManager::checkTerrain()
 	if(m_map.getTilesetInfo().isTileSolid(topRightTile))
 	{
 		std::cout << "Collision at top right corner" << std::endl;
+		collided = true;
 	}
 
 	//set the position to the lower left corner
@@ -67,6 +70,7 @@ void CollisionManager::checkTerrain()
 	if(m_map.getTilesetInfo().isTileSolid(bottomLeftTile))
 	{
 		std::cout << "Collision at bottom left corner" << std::endl;
+		collided = true;
 	}
 
 	//set the position to the lower right  corner
@@ -76,5 +80,10 @@ void CollisionManager::checkTerrain()
 	if(m_map.getTilesetInfo().isTileSolid(bottomRightTile))
 	{
 		std::cout << "Collision at bottom right corner" << std::endl;
+		collided = true;
+	}
+	if(collided)
+	{
+		m_player.move(-m_player.getVelocity());
 	}
 }
