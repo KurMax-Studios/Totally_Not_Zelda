@@ -8,6 +8,7 @@ Player::Player(void)
 	m_size = sf::Vector2i(32, 32);
 	m_orientation = Orientation::DOWN;
 	m_velocity = sf::Vector2f(0, 0);
+	m_attackCooldown = 0;
 }
 
 
@@ -18,6 +19,10 @@ Player::~Player(void)
 void Player::update()
 {
 	move(m_velocity);
+	if(m_attackCooldown > 0)
+	{
+		m_attackCooldown--;
+	}
 }
 
 sf::Vector2f Player::getPosition() const
@@ -67,7 +72,12 @@ sf::Vector2i Player::getSize() const
 void Player::attack()
 {
 	//TODO attack something maybe
+	if(m_attackCooldown > 0)
+	{
+		return;
+	}
 	std::cout << "FEARSOME ATTACK!!!!!" << std::endl;
+	m_attackCooldown = ATTACK_COOLDOWN;
 }
 
 void Player::defend()

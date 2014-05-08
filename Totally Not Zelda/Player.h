@@ -40,5 +40,8 @@ private:
 	float m_speed;
 	bool m_defending;
 	Orientation m_orientation;
+	int m_attackCooldown;
+
+	static const int ATTACK_COOLDOWN = 60; //In ticks, and there are 60 tics per second
 };
 
