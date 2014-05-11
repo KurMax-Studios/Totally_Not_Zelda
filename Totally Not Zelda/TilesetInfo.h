@@ -10,7 +10,7 @@ public:
 
 	void setTileSolid(int, bool);
 
-	bool isTileSolid(int);
+	bool isTileSolid(int); //id as a gid
 
 	std::string name;
 	int firstId;

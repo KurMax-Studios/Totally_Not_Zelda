@@ -26,17 +26,14 @@ sf::Sprite Tileset::getSprite(int id) const
 {
 
 	sf::Sprite sprite(m_texture);
+	id = id - m_tileSetinfo.firstId;
 
 	
 	//Calculate the grid coordinates
-	int gridY = (id*m_tileSetinfo.tileSize.x) / (m_texture.getSize().x - (2*m_tileSetinfo.margin));
-	//TODO: Figure out what is wrong
-	//This code is here becuse the tiles are offset by 1 along the x-axis on the first row
-	if(gridY == 0)
-		id = id-1;
+	int gridY = (id*(m_tileSetinfo.tileSize.x + m_tileSetinfo.spacing)) / (m_texture.getSize().x - (2*m_tileSetinfo.margin));
 
-	int gridX = ((id*m_tileSetinfo.tileSize.x) % (m_texture.getSize().x - (2*m_tileSetinfo.margin)))/m_tileSetinfo.tileSize.x;
-
+	int gridX = ((id*(m_tileSetinfo.tileSize.x + m_tileSetinfo.spacing)) % (m_texture.getSize().x - (2*m_tileSetinfo.margin)))/m_tileSetinfo.tileSize.x;
+	//IT FUCKING WORKS!
 
 	//Convert them into actual pixel coords
 	
