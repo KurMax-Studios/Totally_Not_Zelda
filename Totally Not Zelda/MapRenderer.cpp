@@ -24,7 +24,7 @@ void MapRenderer::draw(sf::RenderTarget &target, sf::RenderStates states) const
 		{
 			int tileId = m_map.getTile(sf::Vector2i(x, y)).id;
 			sf::Sprite sprite = m_tileset.getSprite(tileId);
-			sprite.setPosition(sf::Vector2f(x*m_tileset.getTilesetInfo().tileSize.x, y*m_tileset.getTilesetInfo().tileSize.y) + this->getPosition());
+			sprite.setPosition(sf::Vector2f((float)x*m_tileset.getTilesetInfo().tileSize.x, (float)y*m_tileset.getTilesetInfo().tileSize.y) + this->getPosition());
 			target.draw(sprite);
 		}
 	}

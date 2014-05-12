@@ -23,5 +23,5 @@ bool Enemy::isAlive()
 }
 void Enemy::changeHealth(int ammount)
 {
-	m_health + ammount;
+	m_health += ammount;
 }
