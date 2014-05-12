@@ -56,7 +56,7 @@
     </ClCompile>
     <ClCompile Include="PlayerController.cpp">
       <Filter>Source Files</Filter>
-    </ClCompile>  
+    </ClCompile>
     <ClCompile Include="Options.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -67,6 +67,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="TilesetInfo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -120,6 +126,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="CollisionManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

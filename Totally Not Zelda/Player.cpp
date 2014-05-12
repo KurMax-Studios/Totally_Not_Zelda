@@ -6,11 +6,23 @@ Player::Player(void)
 	m_speed = 1.0f;
 	//TODO: This should probably not be hardcoded
 	m_size = sf::Vector2i(32, 32);
+	m_orientation = Orientation::DOWN;
+	m_velocity = sf::Vector2f(0, 0);
+	m_attackCooldown = 0;
 }
 
 
 Player::~Player(void)
 {
+}
+
+void Player::update()
+{
+	move(m_velocity);
+	if(m_attackCooldown > 0)
+	{
+		m_attackCooldown--;
+	}
 }
 
 sf::Vector2f Player::getPosition() const
@@ -29,6 +41,16 @@ float Player::getSpeed()
 {
 	return m_speed;
 }
+
+void Player::setVelocity(sf::Vector2f velocity)
+{
+	m_velocity = velocity;
+}
+sf::Vector2f Player::getVelocity()
+{
+	return m_velocity;
+}
+
 void Player::setDefending(bool state)
 {
 	m_defending = state;
@@ -50,7 +72,12 @@ sf::Vector2i Player::getSize() const
 void Player::attack()
 {
 	//TODO attack something maybe
+	if(m_attackCooldown > 0)
+	{
+		return;
+	}
 	std::cout << "FEARSOME ATTACK!!!!!" << std::endl;
+	m_attackCooldown = ATTACK_COOLDOWN;
 }
 
 void Player::defend()
@@ -58,4 +85,13 @@ void Player::defend()
 	//TODO defend tha shit out of stuff
 	setSpeed(0.2f);
 	setDefending(true);
+}
+
+Player::Orientation Player::getOrientation()
+{
+	return m_orientation;
+}
+void Player::setOrientation(Player::Orientation orientation)
+{
+	m_orientation = orientation;
 }
