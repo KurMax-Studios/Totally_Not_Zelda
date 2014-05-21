@@ -16,6 +16,9 @@ private:
 
 	sf::Sprite m_playerSprite;
 	//TODO: This texture should probably be loaded somewhere else
-	sf::Texture m_texture;
+	sf::Texture m_texture_up;
+	sf::Texture m_texture_down;
+	sf::Texture m_texture_left;
+	sf::Texture m_texture_right;
 };
 
