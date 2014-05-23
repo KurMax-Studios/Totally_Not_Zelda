@@ -8,6 +8,8 @@ public:
 	~EnemyManager(void);
 	void update();
 
+	void addEnemy(Enemy*);
+
 	const std::vector<Enemy*>& getEnemies() const;
 private:
 	std::vector<Enemy*> m_enemies;

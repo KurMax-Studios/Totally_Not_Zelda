@@ -1,7 +1,7 @@
 #include "CollisionManager.h"
 
 
-CollisionManager::CollisionManager(Player &player, Map &map) : m_player(player), m_map(map)
+CollisionManager::CollisionManager(Player &player, Map &map, EnemyManager &enemyManager) : m_player(player), m_map(map), m_enemyManager(enemyManager)
 {
 }
 
@@ -38,6 +38,27 @@ void CollisionManager::checkBounds()
 	if(m_player.getPosition().y + m_player.getSize().y > m_map.getMapYSize())
 	{
 		m_player.setPosition(sf::Vector2f(m_player.getPosition().x, m_map.getMapYSize() - (0.1f + m_player.getSize().x)));
+	}
+	//Check if any enemies are outside the map
+	const std::vector<Enemy*>& enemies = m_enemyManager.getEnemies();
+	for(size_t i = 0;  i < enemies.size(); i++)
+	{
+		if(enemies[i]->getPosition().x < 0)
+		{
+			enemies[i]->setPosition(sf::Vector2f(0.1f, enemies[i]->getPosition().y));
+		}
+		if(enemies[i]->getPosition().y < 0)
+		{
+			enemies[i]->setPosition(sf::Vector2f(enemies[i]->getPosition().x, 0.1f));
+		}
+		if(enemies[i]->getPosition().x + enemies[i]->getSize().x > m_map.getMapXSize())
+		{
+			enemies[i]->setPosition(sf::Vector2f(m_map.getMapXSize() - (0.1f + enemies[i]->getSize().x), enemies[i]->getPosition().y));
+		}
+		if(enemies[i]->getPosition().y + enemies[i]->getSize().y > m_map.getMapYSize())
+		{
+			enemies[i]->setPosition(sf::Vector2f(enemies[i]->getPosition().x, m_map.getMapYSize() - (0.1f + enemies[i]->getSize().x)));
+		}
 	}
 }
 void CollisionManager::checkTerrain()

@@ -1,7 +1,7 @@
 #include "Game.h"
 
 
-Game::Game(void) : m_mapRenderer(m_map), m_playerRenderer(m_player), m_playerController(m_player, m_options), m_collisionManager(m_player, m_map), m_player(m_options)
+Game::Game(void) : m_mapRenderer(m_map), m_playerRenderer(m_player), m_enemyRenderer(m_enemyManager), m_playerController(m_player, m_options), m_collisionManager(m_player, m_map, m_enemyManager), m_player(m_options)
 {
 	m_options.initOptions();
 	m_windowX = m_options.getOption(Options::SCREEN_X);
@@ -30,6 +30,8 @@ void Game::init()
 
 	m_mapRenderer.init();
 	m_playerRenderer.init();
+	m_enemyRenderer.init();
+
 	m_playerController.init();
 	m_debugOverlay.init();
 
@@ -42,6 +44,11 @@ void Game::init()
 	m_player.setPosition(sf::Vector2f(100, 200));
 
 	m_running = true;
+
+	//TESTING CODE TODO: REMOVE
+	TestEnemy* testEnemy = new TestEnemy();
+	testEnemy->setPosition(sf::Vector2f(40, 40));
+	m_enemyManager.addEnemy(testEnemy);
 }
 void Game::update()
 {
@@ -56,6 +63,10 @@ void Game::update()
 	m_playerController.update();
 	m_player.update();
 	m_playerRenderer.update();
+
+	m_enemyManager.update();
+	m_enemyRenderer.update();
+
 	m_collisionManager.update();
 
 	//TODO think if we should hardcode fps into the function
@@ -71,6 +82,7 @@ void Game::draw()
 	//Draw everything in the game world here
 	m_window.draw(m_mapRenderer);
 	m_window.draw(m_playerRenderer);
+	m_window.draw(m_enemyRenderer);
 
 	//Restore the deafult view to draw static elements and ui
 	m_window.setView(m_window.getDefaultView());
