@@ -45,10 +45,14 @@ void Game::init()
 
 	m_running = true;
 
-	//TESTING CODE TODO: REMOVE
+	//TESTING ENEMIES
+	//Allocating with new is fine since EnemyManager takes care of dealeting them
 	TestEnemy* testEnemy = new TestEnemy();
 	testEnemy->setPosition(sf::Vector2f(40, 40));
 	m_enemyManager.addEnemy(testEnemy);
+	PatrolingEnemy* patrolingEnemy = new PatrolingEnemy();
+	patrolingEnemy->setPosition(sf::Vector2f(40, 40));
+	m_enemyManager.addEnemy(patrolingEnemy);
 }
 void Game::update()
 {
