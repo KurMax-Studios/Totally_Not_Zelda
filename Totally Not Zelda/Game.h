@@ -16,6 +16,7 @@
 
 
 #include "TestEnemy.h"
+#include "PatrolingEnemy.h"
 class Game
 {
 public:

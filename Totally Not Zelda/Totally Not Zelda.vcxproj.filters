@@ -19,6 +19,48 @@
     <Filter Include="Source Files\Libraries">
       <UniqueIdentifier>{9426cd20-ece5-4dfb-bff4-dfac04ace6b7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Model">
+      <UniqueIdentifier>{3aa901b1-b6c5-463e-81c4-439c21634346}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\View">
+      <UniqueIdentifier>{ff43661d-27bf-438a-bd41-c466df219199}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Controler">
+      <UniqueIdentifier>{c0faf70c-e63d-4abe-a0a8-3fbb2998ef7f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Model\Map">
+      <UniqueIdentifier>{f43241a0-9174-4a9d-96a4-a42f754f5cb5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Model\Enemies">
+      <UniqueIdentifier>{8a083377-c944-4461-8b59-2d78aa6dd451}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Model\Utillity">
+      <UniqueIdentifier>{bfbe9c1f-3ddd-40cc-a3b6-530b884d8279}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Model\Enemies\Enemy types">
+      <UniqueIdentifier>{fbcad279-6a83-41ec-9291-a5c31e8ef210}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Model">
+      <UniqueIdentifier>{57a9a2ce-cc63-4d30-ad68-41d5133ba029}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\View">
+      <UniqueIdentifier>{7536e6dd-135f-4593-82ea-7f14c8340d54}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Controler">
+      <UniqueIdentifier>{fe5f10eb-6b7d-49c4-b1a2-08c7a57dab0d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Model\Map">
+      <UniqueIdentifier>{c4b1dbb4-ee24-4198-8857-b9b032fba97b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Model\Enemies">
+      <UniqueIdentifier>{c7a363a0-dd59-4115-a078-928c0bf9ca23}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Model\Enemies\Enemy types">
+      <UniqueIdentifier>{c1d8b021-3dbc-4249-9686-fdc0e1df52df}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Model\Utillity">
+      <UniqueIdentifier>{04150017-0060-46b0-88c1-61d5811cdbd4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -27,81 +69,66 @@
     <ClCompile Include="Game.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="FpsCounter.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Map.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Tile.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Tileset.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="MapRenderer.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="base64.cpp">
       <Filter>Source Files\Libraries</Filter>
     </ClCompile>
     <ClCompile Include="DebugOverlay.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Player.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="PlayerRenderer.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="PlayerController.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Options.cpp">
+    <ClCompile Include="TilesetInfo.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="CollisionManager.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="TilesetInfo.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="TilesetInfo.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Enemy.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="EnemyManager.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Model</Filter>
     </ClCompile>
     <ClCompile Include="EnemyRenderer.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\View</Filter>
+    </ClCompile>
+    <ClCompile Include="MapRenderer.cpp">
+      <Filter>Source Files\View</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>Source Files\Model</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerController.cpp">
+      <Filter>Source Files\Controler</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerRenderer.cpp">
+      <Filter>Source Files\View</Filter>
+    </ClCompile>
+    <ClCompile Include="Tile.cpp">
+      <Filter>Source Files\Model\Map</Filter>
+    </ClCompile>
+    <ClCompile Include="Tileset.cpp">
+      <Filter>Source Files\Model\Map</Filter>
+    </ClCompile>
+    <ClCompile Include="TilesetInfo.cpp">
+      <Filter>Source Files\Model\Map</Filter>
+    </ClCompile>
+    <ClCompile Include="Map.cpp">
+      <Filter>Source Files\Model\Map</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy.cpp">
+      <Filter>Source Files\Model\Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyManager.cpp">
+      <Filter>Source Files\Model\Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="FpsCounter.cpp">
+      <Filter>Source Files\Model\Utillity</Filter>
+    </ClCompile>
+    <ClCompile Include="Options.cpp">
+      <Filter>Source Files\Model\Utillity</Filter>
     </ClCompile>
     <ClCompile Include="TestEnemy.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Model\Enemies\Enemy types</Filter>
+    </ClCompile>
+    <ClCompile Include="PatrolingEnemy.cpp">
+      <Filter>Source Files\Model\Enemies\Enemy types</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="FpsCounter.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Map.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Tile.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="TilesetInfo.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Tileset.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="MapRenderer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="base64.h">
@@ -113,38 +140,59 @@
     <ClInclude Include="DebugOverlay.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Player.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="PlayerRenderer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="PlayerController.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="PlayerRenderer.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="PlayerController.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Options.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="CollisionManager.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Enemy.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="EnemyManager.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Model</Filter>
     </ClInclude>
     <ClInclude Include="EnemyRenderer.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\View</Filter>
+    </ClInclude>
+    <ClInclude Include="MapRenderer.h">
+      <Filter>Header Files\View</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>Header Files\Model</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerRenderer.h">
+      <Filter>Header Files\View</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerController.h">
+      <Filter>Header Files\Controler</Filter>
+    </ClInclude>
+    <ClInclude Include="Map.h">
+      <Filter>Header Files\Model\Map</Filter>
+    </ClInclude>
+    <ClInclude Include="Tile.h">
+      <Filter>Header Files\Model\Map</Filter>
+    </ClInclude>
+    <ClInclude Include="Tileset.h">
+      <Filter>Header Files\Model\Map</Filter>
+    </ClInclude>
+    <ClInclude Include="TilesetInfo.h">
+      <Filter>Header Files\Model\Map</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy.h">
+      <Filter>Header Files\Model\Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyManager.h">
+      <Filter>Header Files\Model\Enemies</Filter>
     </ClInclude>
     <ClInclude Include="TestEnemy.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Model\Enemies\Enemy types</Filter>
+    </ClInclude>
+    <ClInclude Include="Options.h">
+      <Filter>Header Files\Model\Utillity</Filter>
+    </ClInclude>
+    <ClInclude Include="FpsCounter.h">
+      <Filter>Header Files\Model\Utillity</Filter>
+    </ClInclude>
+    <ClInclude Include="PatrolingEnemy.h">
+      <Filter>Header Files\Model\Enemies\Enemy types</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
