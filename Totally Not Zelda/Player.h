@@ -1,10 +1,12 @@
 #pragma once
 #include "SFML\System\Vector2.hpp"
+#include "Options.h"
+#include <SFML\Audio.hpp>
 #include <iostream>
 class Player
 {
 public:
-	Player(void);
+	Player(Options&);
 	~Player(void);
 	enum Orientation
 	{
@@ -41,6 +43,9 @@ private:
 	bool m_defending;
 	Orientation m_orientation;
 	int m_attackCooldown;
+	Options &m_options;
+	sf::SoundBuffer m_attackSoundBuffer;
+	sf::Sound m_attackSound;
 
 	static const int ATTACK_COOLDOWN = 60; //In ticks, and there are 60 tics per second
 };

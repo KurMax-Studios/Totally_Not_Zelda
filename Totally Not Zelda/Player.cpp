@@ -1,7 +1,7 @@
 #include "Player.h"
 
 
-Player::Player(void)
+Player::Player(Options& options) : m_options(options)
 {
 	m_speed = 1.0f;
 	//TODO: This should probably not be hardcoded
@@ -9,6 +9,13 @@ Player::Player(void)
 	m_orientation = Orientation::DOWN;
 	m_velocity = sf::Vector2f(0, 0);
 	m_attackCooldown = 0;
+	//TODO: Program chrashing when closed, related to sounds
+    if (!m_attackSoundBuffer.loadFromFile("attackSound.wav")){
+		std::cout << "Could not load attackSound.waw" << std::endl;
+		exit(6);
+	}
+	m_attackSound.setBuffer(m_attackSoundBuffer);
+	m_attackSound.setVolume(m_options.getOption(Options::optionNames::VOLUME));
 }
 
 
@@ -53,6 +60,7 @@ sf::Vector2f Player::getVelocity()
 
 void Player::setDefending(bool state)
 {
+	//TODO accualy take less to no damage when attacked by an enemy
 	m_defending = state;
 }
 bool Player::isDefending()
@@ -71,18 +79,18 @@ sf::Vector2i Player::getSize() const
 
 void Player::attack()
 {
-	//TODO attack something maybe
+	//TODO damage on enemys
 	if(m_attackCooldown > 0)
 	{
 		return;
 	}
+	m_attackSound.play();
 	std::cout << "FEARSOME ATTACK!!!!!" << std::endl;
 	m_attackCooldown = ATTACK_COOLDOWN;
 }
 
 void Player::defend()
 {
-	//TODO defend tha shit out of stuff
 	setSpeed(0.2f);
 	setDefending(true);
 }

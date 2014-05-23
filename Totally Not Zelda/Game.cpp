@@ -1,7 +1,7 @@
 #include "Game.h"
 
 
-Game::Game(void) : m_mapRenderer(m_map), m_playerRenderer(m_player), m_playerController(m_player, m_options), m_collisionManager(m_player, m_map)
+Game::Game(void) : m_mapRenderer(m_map), m_playerRenderer(m_player), m_playerController(m_player, m_options), m_collisionManager(m_player, m_map), m_player(m_options)
 {
 	m_options.initOptions();
 	m_windowX = m_options.getOption(Options::SCREEN_X);
