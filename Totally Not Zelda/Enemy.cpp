@@ -54,7 +54,7 @@ void Enemy::setVelocity(sf::Vector2f velocity)
 	m_velocity = velocity;
 }
 
-int Enemy::getSize() const
+sf::Vector2i Enemy::getSize() const
 {
 	return m_size;
 }

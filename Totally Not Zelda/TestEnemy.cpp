@@ -5,6 +5,7 @@ TestEnemy::TestEnemy(void)
 {
 	m_velocity = sf::Vector2f(0, 1);
 	m_spriteName = "TEST_ENEMY";
+	m_size = sf::Vector2i(32, 32);
 }
 
 

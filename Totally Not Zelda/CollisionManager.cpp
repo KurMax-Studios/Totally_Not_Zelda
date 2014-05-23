@@ -43,21 +43,21 @@ void CollisionManager::checkBounds()
 	const std::vector<Enemy*>& enemies = m_enemyManager.getEnemies();
 	for(size_t i = 0;  i < enemies.size(); i++)
 	{
-		if(m_player.getPosition().x < 0)
+		if(enemies[i]->getPosition().x < 0)
 		{
-			m_player.setPosition(sf::Vector2f(0.1f, m_player.getPosition().y));
+			enemies[i]->setPosition(sf::Vector2f(0.1f, enemies[i]->getPosition().y));
 		}
-		if(m_player.getPosition().y < 0)
+		if(enemies[i]->getPosition().y < 0)
 		{
-			m_player.setPosition(sf::Vector2f(m_player.getPosition().x, 0.1f));
+			enemies[i]->setPosition(sf::Vector2f(enemies[i]->getPosition().x, 0.1f));
 		}
-		if(m_player.getPosition().x + m_player.getSize().x > m_map.getMapXSize())
+		if(enemies[i]->getPosition().x + enemies[i]->getSize().x > m_map.getMapXSize())
 		{
-			m_player.setPosition(sf::Vector2f(m_map.getMapXSize() - (0.1f + m_player.getSize().x), m_player.getPosition().y));
+			enemies[i]->setPosition(sf::Vector2f(m_map.getMapXSize() - (0.1f + enemies[i]->getSize().x), enemies[i]->getPosition().y));
 		}
-		if(m_player.getPosition().y + m_player.getSize().y > m_map.getMapYSize())
+		if(enemies[i]->getPosition().y + enemies[i]->getSize().y > m_map.getMapYSize())
 		{
-			m_player.setPosition(sf::Vector2f(m_player.getPosition().x, m_map.getMapYSize() - (0.1f + m_player.getSize().x)));
+			enemies[i]->setPosition(sf::Vector2f(enemies[i]->getPosition().x, m_map.getMapYSize() - (0.1f + enemies[i]->getSize().x)));
 		}
 	}
 }

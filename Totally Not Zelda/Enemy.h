@@ -19,12 +19,12 @@ public:
 	sf::Vector2f getVelocity() const;
 	void setVelocity(sf::Vector2f);
 
-	int getSize() const;
+	sf::Vector2i getSize() const;
 protected:
 	int m_health;
 	sf::Vector2f m_position;
 	sf::Vector2f m_velocity;
-	int m_size;
+	sf::Vector2i m_size;
 	std::string m_spriteName;
 };
 
