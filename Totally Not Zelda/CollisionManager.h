@@ -1,10 +1,11 @@
 #pragma once
 #include "Player.h"
 #include "Map.h"
+#include "EnemyManager.h"
 class CollisionManager
 {
 public:
-	CollisionManager(Player&, Map&);
+	CollisionManager(Player&, Map&, EnemyManager&);
 	~CollisionManager(void);
 	void update();
 private:
@@ -13,5 +14,6 @@ private:
 	void checkTerrain();
 	Player& m_player;
 	Map& m_map;
+	EnemyManager& m_enemyManager;
 };
 

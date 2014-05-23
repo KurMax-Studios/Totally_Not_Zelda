@@ -10,6 +10,12 @@
 #include "PlayerController.h"
 #include "Options.h"
 #include "CollisionManager.h"
+#include "Enemy.h"
+#include "EnemyManager.h"
+#include "EnemyRenderer.h"
+
+
+#include "TestEnemy.h"
 class Game
 {
 public:
@@ -29,9 +35,11 @@ private:
 	DebugOverlay m_debugOverlay;
 	Options m_options;
 	CollisionManager m_collisionManager;
+	EnemyManager m_enemyManager;
 
 	MapRenderer m_mapRenderer;
 	PlayerRenderer m_playerRenderer;
+	EnemyRenderer m_enemyRenderer;
 
 	PlayerController m_playerController;
 
